@@ -46,9 +46,10 @@ getDictionary(function(dictionary) {
                 // add the selected item
                 terms.push(ui.item.value);
                 // add placeholder to get the comma-and-space at the end
-                terms.push("​");
+                //terms.push("​");
 
-                this.value = terms.join("​");
+                this.value = terms.join("​") + "​";
+                //this.value = terms;
                 return false;
             }
         });
