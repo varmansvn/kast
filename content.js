@@ -16,12 +16,14 @@ function getDictionary(callback) {
 
 getDictionary(function(dictionary) {
 
-    $("input[type=text], textarea").bind("keydown",function (event) {
+    $("body").delegate("input[type=text], textarea", "focusin", function(event) {
+
         if (event.keyCode === $.ui.keyCode.TAB &&
             $(this).data("ui-autocomplete").menu.active) {
             event.preventDefault();
         }
-    }).autocomplete({
+
+        $(this).autocomplete({
             minLength: 1,
             source: function (request, response) {
                 var word = extractLast(request.term);
@@ -50,5 +52,6 @@ getDictionary(function(dictionary) {
                 return false;
             }
         });
+    });
 });
 
