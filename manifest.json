@@ -1,13 +1,15 @@
 {
     "name": "KAST",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 2,
     "description" : "Khmer Auto Suggest Tool",
     "icons": { "16": "icons/16x16.png", "48": "icons/48x48.png", "128": "icons/128x128.png" },
+
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["js/jquery-1.9.1.js", "background.js"],
         "persistent": false
-},
+    },
+
     "browser_action": {
         "default_icon": { "19": "icons/19x19.png", "38": "icons/38x38.png" },
         "default_title": "Khmer Auto Suggest Tool"
@@ -18,8 +20,15 @@
         "js": ["js/jquery-1.9.1.js", "js/jquery-ui-1.10.3.custom.min.js", "content.js"]
     }],
     "permissions": [
+        "notifications",
         "http://*/*",
         "https://*/*",
-        "tabs"
+        "tabs",
+        "storage",
+        "unlimitedStorage"
+    ],
+    "web_accessible_resources": [
+        "js/data.json",
+        "icons/48x48.png"
     ]
 }
